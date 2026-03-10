@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trắc nghiệm Lịch sử 11</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>TRẮC NGHIỆM LỊCH SỬ 11</h1>
+
+<button onclick="shuffleQuestions()">🔀 Trộn câu hỏi</button>
+<button onclick="check()">Nộp bài</button>
+
+<form id="quiz"></form>
+
+<h2 id="result"></h2>
+
+<script>
+
+const questions = [
+
+{
+q:"Câu 1. Dòng sông nào ba lần ghi danh quân dân Đại Việt đánh bại quân xâm lược phương Bắc?",
+a:["Sông Mê Công","Sông Đà","Sông Hồng","Sông Bạch Đằng"],
+correct:3
+},
+
+{
+q:"Câu 2. 'Bất sư tăng chưa đến 50 tuổi phải hoàn tục' là cải cách của Hồ Quý Ly về lĩnh vực nào?",
+a:["Văn hóa","Kinh tế","Chính trị","Quốc phòng"],
+correct:0
+},
+
+{
+q:"Câu 3. Trong kháng chiến chống Tống (1075-1077), nhà Lý dùng nghệ thuật quân sự nào?",
+a:["Tiên phát chế nhân","Đánh điểm diệt viện","Đánh nhanh thắng nhanh","Vườn không nhà trống"],
+correct:0
+},
+
+{
+q:"Câu 4. Vai trò của chiến tranh bảo vệ Tổ quốc trong lịch sử Việt Nam?",
+a:[
+"Góp phần định hình văn hóa",
+"Củng cố vị thế quân sự",
+"Khẳng định Việt Nam là cường quốc kinh tế",
+"Bảo vệ vững chắc nền độc lập dân tộc"],
+correct:3
+},
+
+{
+q:"Câu 5. Hội nghị Diên Hồng và khẩu hiệu 'Sát Thát' thể hiện điều gì?",
+a:[
+"Hào khí Đông A",
+"Xem nhẹ kẻ thù",
+"Chủ động tấn công",
+"Bàn bạc đánh giặc"],
+correct:0
+},
+
+{
+q:"Câu 6. Việt Nam có vị trí địa chiến lược nào ở Đông Nam Á?",
+a:[
+"Cầu nối Đông Nam Á lục địa và hải đảo",
+"Nằm trên trục Á-Phi",
+"Lớn nhất Đông Nam Á",
+"Gồm cả lục địa và hải đảo"],
+correct:0
+},
+
+{
+q:"Câu 7. Nghệ thuật 'Tiên phát chế nhân' nghĩa là gì?",
+a:[
+"Điều địch",
+"Chủ động tấn công trước",
+"Vây thành",
+"Lập phòng tuyến"],
+correct:1
+},
+
+{
+q:"Câu 8. Nghĩa quân Tây Sơn đánh bại quân Xiêm năm 1785 ở đâu?",
+a:[
+"Rạch Gầm – Xoài Mút",
+"Ngọc Hồi – Đống Đa",
+"Như Nguyệt",
+"Tây Kết"],
+correct:0
+},
+
+{
+q:"Câu 9. Ba lần kháng chiến chống Mông Nguyên gắn với triều đại nào?",
+a:["Tiền Lê","Nhà Lý","Nhà Trần","Nhà Hồ"],
+correct:2
+},
+
+{
+q:"Câu 10. Khởi nghĩa Lam Sơn chống lại quân nào?",
+a:["Nhà Hán","Nhà Tống","Nhà Nguyên","Nhà Minh"],
+correct:3
+},
+
+{
+q:"Câu 11. Một trong những nhân tố quyết định thắng lợi của các cuộc kháng chiến chống ngoại xâm của dân tộc Việt Nam là gì?",
+a:[
+"Kết hợp quân sự và ngoại giao",
+"Đa phương hóa quan hệ quốc tế",
+"Huy động sức mạnh toàn dân tộc",
+"Giành thắng lợi từng bước"
+],
+correct:2
+},
+
+{
+q:"Câu 12. Câu nói 'Vua tôi đồng tâm, anh em hòa mục, cả nước góp sức' thể hiện điều gì?",
+a:[
+"Tính chính nghĩa của kháng chiến",
+"Kế sách đánh giặc đúng đắn",
+"Tinh thần đoàn kết toàn dân",
+"Kẻ địch gặp khó khăn"
+],
+correct:2
+},
+
+{
+q:"Câu 13. Kế sách nào của Ngô Quyền được nhà Tiền Lê kế thừa để đánh quân Tống năm 981?",
+a:[
+"Tiên phát chế nhân",
+"Đánh thành diệt viện",
+"Vườn không nhà trống",
+"Đóng cọc trên sông Bạch Đằng"
+],
+correct:3
+},
+
+{
+q:"Câu 14. Cuộc kháng chiến chống Pháp (1858-1884) thất bại chủ yếu vì?",
+a:[
+"Nhân dân không yêu nước",
+"Hạn chế của giai cấp lãnh đạo",
+"Quân Pháp mạnh",
+"Phong trào chưa sôi nổi"
+],
+correct:1
+},
+
+{
+q:"Câu 15. Bài học kinh nghiệm từ thất bại của nhà Hồ khi chống quân Minh là gì?",
+a:[
+"Xây thành lũy kiên cố",
+"Quy tụ tướng giỏi",
+"Đoàn kết toàn dân",
+"Xây dựng quân đội mạnh"
+],
+correct:2
+},
+
+{
+q:"Câu 16. Tính chính nghĩa của các cuộc chiến tranh giải phóng Việt Nam trước 1945 được xác định chủ yếu qua?",
+a:[
+"Hình thức chiến tranh",
+"Mục tiêu chiến tranh",
+"Lực lượng lãnh đạo",
+"Kết quả chiến tranh"
+],
+correct:1
+},
+
+{
+q:"Câu 17. Trong kháng chiến chống quân Xiêm (1785), Tây Sơn sử dụng chiến thuật nào?",
+a:[
+"Tấn công phủ đầu",
+"Vườn không nhà trống",
+"Công tâm",
+"Nghi binh, nhử địch vào trận địa mai phục"
+],
+correct:3
+},
+
+{
+q:"Câu 18. Khởi nghĩa Lam Sơn nổ ra trong bối cảnh nào?",
+a:[
+"Nhà Minh cai trị hà khắc",
+"Vua Trần bỏ bê nông nghiệp",
+"Đất nước bị chia hai",
+"Nhà Hồ cải cách"
+],
+correct:0
+},
+
+{
+q:"Câu 19. Cuộc đấu tranh nào diễn ra trong thời kỳ Bắc thuộc?",
+a:[
+"Phong trào Tây Sơn",
+"Khởi nghĩa Lam Sơn",
+"Khởi nghĩa Phùng Hưng",
+"Khởi nghĩa Trương Định"
+],
+correct:2
+},
+
+{
+q:"Câu 20. Trong khởi nghĩa Lam Sơn, sự kiện tập hợp lực lượng đầu tiên là gì?",
+a:[
+"Hội thề Lũng Nhai",
+"Hội nghị Bình Than",
+"Hội nghị Diên Hồng",
+"Hội thề Đông Quan"
+],
+correct:0
+},
+
+{
+q:"Câu 21. Xây dựng nhiều thành lũy, chế tạo súng thần cơ là cải cách của Hồ Quý Ly về lĩnh vực nào?",
+a:["Kinh tế","Văn hóa","Quân sự","Xã hội"],
+correct:2
+},
+
+{
+q:"Câu 22. Sau khi lên ngôi lập nhà Hồ, Hồ Quý Ly đã làm gì?",
+a:[
+"Chống quân Xiêm",
+"Chiến tranh Nam Bắc triều",
+"Mở rộng lãnh thổ",
+"Tiến hành cải cách"
+],
+correct:3
+},
+
+{
+q:"Câu 23. Nội dung nào không phải là bài học lịch sử từ các cuộc khởi nghĩa?",
+a:[
+"Xây dựng lực lượng",
+"Đoàn kết toàn dân",
+"Nghệ thuật quân sự sáng tạo",
+"Chủ động khơi mào chiến tranh"
+],
+correct:3
+},
+
+{
+q:"Câu 24. Chính sách hạn điền, hạn nô cuối thế kỉ XIV nhằm?",
+a:[
+"Làm suy yếu quý tộc",
+"Tăng thu ngân sách",
+"Tăng quyền lực nhà nước",
+"Thiết lập quân chủ tập quyền"
+],
+correct:3
+},
+
+{
+q:"Câu 25. Nội dung cải cách văn hóa của Hồ Quý Ly không gồm?",
+a:[
+"Bắt nhà sư hoàn tục",
+"Tổ chức thi cử",
+"Khuyến khích chữ Nôm",
+"Mở trường học"
+],
+correct:0
+},
+
+{
+q:"Câu 26. Nguyên nhân suy yếu của triều Trần nửa sau thế kỉ XIV là?",
+a:[
+"Giặc Minh xâm lược",
+"Quan lại ăn chơi hưởng lạc",
+"Chu Văn An dâng sớ",
+"Nhiều chiến tranh"
+],
+correct:1
+},
+
+{
+q:"Câu 27. Chiến thắng Bạch Đằng 938 có ý nghĩa gì?",
+a:[
+"Mở ra thời kì độc lập lâu dài",
+"Lập chính quyền mới",
+"Buộc phương Bắc công nhận độc lập",
+"Khôi phục độc lập"
+],
+correct:0
+},
+
+{
+q:"Câu 28. Chính sách nào không phải của nhà Minh tại Việt Nam?",
+a:[
+"Đồng hóa văn hóa",
+"Chia để trị",
+"Tăng thuế",
+"Giữ nguyên bộ máy cũ"
+],
+correct:3
+},
+
+{
+q:"Câu 29. Mục đích xây thành Tây Đô của Hồ Quý Ly là?",
+a:[
+"Tấn công nhà Minh",
+"Chuẩn bị đánh Champa",
+"Tích trữ lương thực",
+"Tăng cường phòng thủ"
+],
+correct:3
+},
+
+{
+q:"Câu 30. Khởi nghĩa Lam Sơn diễn ra khi?",
+a:[
+"Đại Ngu bị nhà Minh đô hộ",
+"Đại Việt độc lập",
+"Nhà Minh khủng hoảng",
+"Nhà Nguyên suy yếu"
+],
+correct:0
+},
+
+{
+q:"Câu 31. Nhiệm vụ sống còn của cải cách Hồ Quý Ly là gì?",
+a:[
+"Xây dựng mô hình nhà nước mới",
+"Giải quyết hạn chế của nhà Trần",
+"Giữ vững độc lập trước ngoại xâm",
+"Khắc phục khủng hoảng kinh tế"
+],
+correct:0
+},
+
+{
+q:"Câu 32. Năm 1786, nghĩa quân Tây Sơn giành thắng lợi nào?",
+a:[
+"Đánh tan quân Xiêm",
+"Lật đổ chúa Trịnh",
+"Lật đổ chúa Nguyễn",
+"Đánh bại quân Thanh"
+],
+correct:2
+},
+
+{
+q:"Câu 33. Vai trò của các cuộc chiến tranh bảo vệ Tổ quốc trong lịch sử Việt Nam là?",
+a:[
+"Quyết định sự tồn vong dân tộc",
+"Hoàn thành cải cách đất nước",
+"Tạo nền tảng cộng đồng dân tộc",
+"Giữ hòa bình với phương Nam"
+],
+correct:0
+},
+
+{
+q:"Câu 34. Ai lãnh đạo kháng chiến chống Nam Hán trên sông Bạch Đằng năm 938?",
+a:["Ngô Quyền","Lê Hoàn","Quang Trung","Lê Lợi"],
+correct:0
+},
+
+{
+q:"Câu 35. Trong lịch sử chống ngoại xâm Việt Nam, cuộc kháng chiến nào thất bại?",
+a:[
+"Chống quân Triệu và chống Pháp",
+"Chống Xiêm và chống Thanh",
+"Chống Mông Nguyên và chống Minh",
+"Chống Nam Hán và chống Tống"
+],
+correct:0
+},
+
+{
+q:"Câu 36. Một nguyên nhân thắng lợi của các cuộc kháng chiến bảo vệ Tổ quốc là?",
+a:[
+"Huy động sức mạnh toàn dân",
+"Chủ động tấn công giặc",
+"Có giai cấp công nhân tham gia",
+"Đấu tranh chính trị kết hợp vũ trang"
+],
+correct:0
+},
+
+{
+q:"Câu 37. Trong lịch sử, Việt Nam phải đối phó nhiều thế lực ngoại xâm vì?",
+a:[
+"Có vị trí địa chiến lược quan trọng",
+"Là cái nôi văn minh",
+"Là trung tâm văn hóa phương Tây",
+"Có trình độ phát triển cao"
+],
+correct:0
+},
+
+{
+q:"Câu 38. Trong kháng chiến chống Tống (1075-1077), Lý Thường Kiệt sử dụng nghệ thuật quân sự nào?",
+a:[
+"Chủ động tấn công trước",
+"Bố trí cọc trên sông",
+"Vườn không nhà trống",
+"Tổng tiến công"
+],
+correct:0
+},
+
+{
+q:"Câu 39. Trong lịch sử, Việt Nam luôn phải tiến hành chiến tranh bảo vệ Tổ quốc vì?",
+a:[
+"Vị trí chiến lược quan trọng",
+"Được xem là cái nôi văn minh",
+"Là trung tâm văn hóa",
+"Có nền kinh tế phát triển"
+],
+correct:0
+},
+
+{
+q:"Câu 40. Điểm tương đồng giữa khởi nghĩa Hai Bà Trưng và Lý Bí là?",
+a:[
+"Đều trải qua giai đoạn khởi nghĩa và kháng chiến",
+"Đều chống phương Bắc và Nam",
+"Đều thắng lợi lâu dài",
+"Đều giành quyền cho giai cấp lãnh đạo"
+],
+correct:0
+},
+
+{
+q:"Câu 41. Các cuộc khởi nghĩa thời Bắc thuộc diễn ra trong bối cảnh nào?",
+a:[
+"Nền độc lập bị tước đoạt",
+"Đất nước chia hai",
+"Nhà Tống đô hộ",
+"Nhân dân bị Hán hóa hoàn toàn"
+],
+correct:0
+},
+
+{
+q:"Câu 42. Khởi nghĩa nào giành thắng lợi và lập ra nước Vạn Xuân?",
+a:[
+"Khởi nghĩa Lý Bí",
+"Hai Bà Trưng",
+"Bà Triệu",
+"Phùng Hưng"
+],
+correct:0
+},
+
+{
+q:"Câu 43. Thứ tự thời gian đúng của các sự kiện sau là?",
+a:[
+"Hai Bà Trưng → Lam Sơn → Kháng Thanh",
+"Lam Sơn → Hai Bà Trưng → Kháng Thanh",
+"Hai Bà Trưng → Kháng Thanh → Lam Sơn",
+"Lam Sơn → Kháng Thanh → Hai Bà Trưng"
+],
+correct:0
+},
+
+{
+q:"Câu 44. Nghĩa quân Tây Sơn đánh bại quân Thanh năm 1789 ở đâu?",
+a:[
+"Ngọc Hồi – Đống Đa",
+"Rạch Gầm – Xoài Mút",
+"Như Nguyệt",
+"Tây Kết"
+],
+correct:0
+},
+
+{
+q:"Câu 45. Nội dung nào không phải ý nghĩa của khởi nghĩa Lam Sơn?",
+a:[
+"Phát triển chiến tranh bảo vệ Tổ quốc",
+"Mở thời kỳ phát triển mới",
+"Đập tan âm mưu đồng hóa",
+"Đánh tan ngoại xâm"
+],
+correct:0
+},
+
+{
+q:"Câu 46. Kẻ thù xâm lược Việt Nam trong lịch sử chủ yếu đến từ hướng nào?",
+a:[
+"Phía Tây",
+"Phía Bắc",
+"Phía Đông",
+"Phía Nam"
+],
+correct:1
+},
+
+{
+q:"Câu 47. Phong trào Tây Sơn có công lao gì?",
+a:[
+"Xóa bỏ chia cắt đất nước",
+"Thống nhất đất nước",
+"Lật đổ Xiêm",
+"Ngăn chặn Pháp"
+],
+correct:0
+},
+
+{
+q:"Câu 48. Năm 1423, Lê Lợi tạm hòa với quân Minh nhằm?",
+a:[
+"Thiếu tướng tài",
+"Nghĩa quân yếu",
+"Quân sĩ sợ hãi",
+"Có thời gian xây dựng lực lượng"
+],
+correct:3
+},
+
+{
+q:"Câu 49. Tiền giấy đầu tiên trong lịch sử Việt Nam do ai ban hành?",
+a:[
+"Hồ Quý Ly",
+"Trần Nhân Tông",
+"Lê Thánh Tông",
+"Gia Long"
+],
+correct:0
+},
+
+{
+q:"Câu 50. Nội dung nào không đúng về khởi nghĩa Lam Sơn?",
+a:[
+"Phát triển thành chiến tranh cả nước",
+"Mang tính chính nghĩa",
+"Mang tính dân chủ",
+"Kết thúc bằng nghị hòa"
+],
+correct:2
+},
+
+{
+q:"Câu 51. Công lao lớn của Hai Bà Trưng là gì?",
+a:[
+"Tạo truyền thống phụ nữ Việt Nam",
+"Mở thời kỳ độc lập lâu dài",
+"Đập tan đô hộ",
+"Xây dựng nhà nước Văn Xuân"
+],
+correct:0
+},
+
+{
+q:"Câu 52. Nội dung nào không đúng về phong trào Tây Sơn?",
+a:[
+"Khởi nghĩa nông dân duy nhất thắng lợi",
+"Mở ra độc lập lâu dài",
+"Hoàn thành nhiệm vụ dân tộc",
+"Thống nhất đất nước"
+],
+correct:1
+},
+
+{
+q:"Câu 53. Bài học không đúng rút ra từ các cuộc khởi nghĩa là?",
+a:[
+"Nhân nhượng kẻ thù",
+"Xây dựng đoàn kết dân tộc",
+"Chiến tranh nhân dân",
+"Phát động toàn dân"
+],
+correct:0
+},
+
+{
+q:"Câu 54. Tư tưởng xuyên suốt khởi nghĩa Lam Sơn là?",
+a:[
+"Trung quân ái quốc",
+"Tự do dân chủ",
+"Bình đẳng tự quyết",
+"Nhân nghĩa"
+],
+correct:3
+},
+
+{
+q:"Câu 55. Nguyên nhân sâu xa của các cuộc đấu tranh thời Bắc thuộc là?",
+a:[
+"Nhân dân thiếu lãnh đạo",
+"Chính quyền đô hộ khủng hoảng",
+"Ách bóc lột nặng nề",
+"Mâu thuẫn thủ lĩnh"
+],
+correct:2
+},
+
+{
+q:"Câu 56. Nguyên nhân thất bại của kháng chiến chống Minh của nhà Hồ là?",
+a:[
+"Không được lòng dân",
+"Khủng hoảng đất nước",
+"Khởi nghĩa bị dập tắt",
+"Dùng chiến thuật sai"
+],
+correct:0
+},
+
+{
+q:"Câu 57. Lý Bí đặt tên nước Vạn Xuân nhằm?",
+a:[
+"Mong đất nước hòa bình",
+"Khẳng định độc lập",
+"So sánh với Nam châu",
+"Mở rộng bờ cõi"
+],
+correct:0
+},
+
+{
+q:"Câu 58. Đoạn tư liệu nói về cuộc kháng chiến nào?",
+a:[
+"Kháng chiến chống Mông Cổ 1258",
+"Chống Nguyên lần 2",
+"Chống Nguyên lần 3",
+"Chống Tống"
+],
+correct:0
+},
+
+{
+q:"Câu 59. Nguyên nhân thất bại của quân Mông Cổ là?",
+a:[
+"Cách đánh của quân Trần",
+"Không quen địa hình",
+"Quý tộc nhà Trần mạnh",
+"Quân Mông Cổ hoang mang"
+],
+correct:1
+},
+
+{
+q:"Câu 60. Bài học lịch sử từ đoạn tư liệu là?",
+a:[
+"Chờ kẻ thù suy yếu",
+"Dựa vào lực lượng đông",
+"Tấn công nơi thuận lợi",
+"Tận dụng địa hình để đánh giặc"
+],
+correct:3
+}
+
+];
+
+const quiz=document.getElementById("quiz");
+
+function load(){
+
+quiz.innerHTML="";
+
+questions.forEach((item,i)=>{
+
+let div=document.createElement("div");
+div.className="question";
+
+let html=`<p><b>${item.q}</b></p>`;
+
+item.a.forEach((ans,index)=>{
+
+html+=`
+<label>
+<input type="radio" name="q${i}" value="${index}">
+${String.fromCharCode(65+index)}. ${ans}
+</label><br>
+`;
+
+});
+
+div.innerHTML=html;
+
+quiz.appendChild(div);
+
+});
+
+}
+
+load();
+
+function check(){
+
+let score=0;
+
+questions.forEach((q,i)=>{
+
+let options=document.getElementsByName("q"+i);
+
+options.forEach(opt=>{
+
+let label=opt.parentElement;
+
+label.classList.remove("correct","wrong");
+
+if(opt.checked){
+
+if(parseInt(opt.value)===q.correct){
+
+label.classList.add("correct");
+score++;
+
+}else{
+
+label.classList.add("wrong");
+
+}
+
+}
+
+if(parseInt(opt.value)===q.correct){
+
+label.classList.add("correct");
+
+}
+
+});
+
+});
+
+document.getElementById("result").innerHTML=
+"Bạn đúng <b>"+score+" / "+questions.length+"</b> câu";
+
+}
+
+function shuffleQuestions(){
+
+for(let i=questions.length-1;i>0;i--){
+
+let j=Math.floor(Math.random()*(i+1));
+[questions[i],questions[j]]=[questions[j],questions[i]];
+
+}
+
+load();
+
+}
+
+</script>
+
+</body>
+</html>

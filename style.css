@@ -1,0 +1,167 @@
+/* nền trang */
+
+/* nền gradient chuyển động */
+
+body{
+font-family: "Segoe UI", Arial, sans-serif;
+margin:0;
+padding:30px;
+
+background: linear-gradient(
+120deg,
+#f8fbff,
+#e8f3ff,
+#f0f7ff,
+#e6f2ff
+);
+
+background-size:400% 400%;
+
+animation: gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* tiêu đề */
+
+h1{
+text-align:center;
+color:white;
+margin-bottom:30px;
+}
+
+/* khung câu hỏi */
+
+.question{
+background:white;
+padding:18px;
+margin-bottom:18px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+transition:0.2s;
+}
+
+.question:hover{
+transform:scale(1.01);
+}
+
+/* đáp án */
+
+label{
+display:block;
+padding:8px;
+border-radius:6px;
+cursor:pointer;
+transition:0.2s;
+}
+
+label:hover{
+background:#f1f1f1;
+}
+
+/* đúng */
+
+.correct{
+background:#d4edda;
+color:#155724;
+font-weight:bold;
+}
+
+/* sai */
+
+.wrong{
+background:#f8d7da;
+color:#721c24;
+font-weight:bold;
+}
+
+/* nút */
+
+button{
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#007bff;
+color:white;
+cursor:pointer;
+margin:10px;
+transition:0.2s;
+}
+
+button:hover{
+background:#0056b3;
+transform:scale(1.05);
+}
+
+/* kết quả */
+
+#result{
+text-align:center;
+font-size:24px;
+color:white;
+margin-top:20px;
+font-weight:bold;
+}
+
+/* các dải màu nền */
+
+body::before,
+body::after{
+
+content:"";
+position:fixed;
+
+width:120vw;
+height:120vh;
+
+top:-10vh;
+left:-10vw;
+
+background:linear-gradient(
+90deg,
+rgba(0,150,255,0.05),
+rgba(0,200,150,0.05),
+rgba(100,150,255,0.05)
+);
+
+transform:rotate(25deg);
+
+animation:bandMove 40s linear infinite;
+
+z-index:-1;
+
+}
+
+body::after{
+
+animation-direction:reverse;
+opacity:0.6;
+
+}
+
+@keyframes bandMove{
+
+0%{
+transform:translateX(-20%) rotate(25deg);
+}
+
+100%{
+transform:translateX(20%) rotate(25deg);
+}
+
+}
