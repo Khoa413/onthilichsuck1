@@ -46,13 +46,29 @@ margin-bottom:30px;
 
 /* khung câu hỏi */
 
+/* khung câu hỏi */
+
 .question{
 background:white;
-padding:18px;
-margin-bottom:18px;
-border-radius:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.15);
+
+width:90%;
+max-width:1100px;
+
+padding:30px;
+
+margin:30px auto;
+
+border-radius:16px;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.18);
+
 transition:0.2s;
+
+font-size:18px;
+}
+
+.question:hover{
+transform:scale(1.01);
 }
 
 .question:hover{
@@ -69,8 +85,18 @@ cursor:pointer;
 transition:0.2s;
 }
 
-label:hover{
-background:#f1f1f1;
+label{
+display:block;
+
+padding:14px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+transition:0.2s;
+
+font-size:17px;
 }
 
 /* đúng */
@@ -92,15 +118,25 @@ font-weight:bold;
 /* nút */
 
 button{
-padding:12px 25px;
-font-size:16px;
+
+padding:14px 35px;
+
+font-size:18px;
+
 border:none;
-border-radius:8px;
+
+border-radius:10px;
+
 background:#007bff;
+
 color:white;
+
 cursor:pointer;
-margin:10px;
+
+margin:12px;
+
 transition:0.2s;
+
 }
 
 button:hover{
