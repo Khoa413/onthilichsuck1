@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Trắc nghiệm Lịch sử 11</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Trắc nghiệm Lịch sử 11</title>
 </head>
-
 <body>
 
 <h1>TRẮC NGHIỆM LỊCH SỬ 11</h1>
@@ -18,403 +16,373 @@
 <h2 id="result"></h2>
 
 <script>
-
+// Đã sửa lỗi các dấu ngoặc kép dư thừa ở câu 31 và kiểm tra lại logic đáp án
 const questions = [
-
-  {
-"q": "Câu 1. Trong cuộc kháng chiến chống Tống lần 2 (1075-1077), Lý Thường Kiệt đã chỉ đạo quân dân ta sử dụng nghệ thuật quân sự độc đáo nào sau đây?",
-"a": ["Bố trí trận địa cọc trên sông Bạch Đằng", "Chủ động nghị hòa sau thắng lợi về quân sự", "Thực hiện 'vườn không nhà trống'", "Tổ chức tổng tiến công trên cả nước"],
-"correct": 1
-},
-{
-"q": "Câu 2. Cuộc khởi nghĩa nào sau đây mở đầu thời kì đấu tranh chống Bắc thuộc của nhân dân Việt Nam?",
-"a": ["Khởi nghĩa Hai Bà Trưng", "Khởi nghĩa Bà Triệu", "Khởi nghĩa Lý Bí", "Khởi nghĩa Phùng Hưng"],
-"correct": 0
-},
-{
-"q": "Câu 3. Nội dung nào sau đây phản ánh đúng công lao của Phong trào Tây Sơn (1771 - 1802)?",
-"a": ["Thiết lập một vương triều quân chủ cuối cùng", "Bước đầu thống nhất đất nước về mặt lãnh thổ", "Lật đổ ách đô hộ của nhà Thanh ở Việt Nam", "Ngăn chặn được nguy cơ thực dân Anh xâm lược"],
-"correct": 1
-},
-{
-"q": "Câu 4. Câu thơ 'Mà nay áo vải cờ đào/Giúp dân dựng nước xiết bao công trình' nhắc đến nhân vật lịch sử nào?",
-"a": ["Nguyễn Nhạc", "Nguyễn Lữ", "Nguyễn Huệ", "Ngô Quyền"],
-"correct": 2
-},
-{
-"q": "Câu 5. Cuộc kháng chiến không thành công nào sau đây dẫn đến hậu quả Việt Nam trở thành nước thuộc địa nửa phong kiến?",
-"a": ["Chống thực dân Pháp", "Chống quân Minh", "Chống quân Xiêm", "Chống quân Triệu"],
-"correct": 0
-},
-{
-"q": "Câu 6. Ở Việt Nam cuối thế kỉ XVIII, tình hình chính trị Đàng Trong khủng hoảng trầm trọng do nguyên nhân nào?",
-"a": ["Nội bộ chính quyền tranh đấu lẫn nhau", "Phong trào đấu tranh của nhân dân lan rộng", "Các hoạt động sản xuất bị ngừng trệ", "Sự chống phá từ thế lực ngoại bang"],
-"correct": 0
-},
-{
-"q": "Câu 7. Theo đoạn tư liệu về vua Quang Trung, nội dung nào sau đây KHÔNG được nhắc tới?",
-"a": ["Chính sách trọng dụng hiền tài", "Việc trị quốc thời Tây Sơn", "Vua Quang Trung đại phá quân Xiêm và Thanh", "Vai trò của Nguyễn Huệ trong lịch sử"],
-"correct": 2
-},
-{
-"q": "Câu 8. Nội dung nào sau đây phản ánh không đúng về thông tin của đoạn trích trên?",
-"a": ["Chính sách đối ngoại của Vương triều Tây Sơn. ", "Tình hình lịch sử Việt Nam cuối thế kỉ XVIII.", "Việc trọng dụng nhân tài của vua Quang Trung. ", "Vua Quang Trung đề cao người có học thức."],
-"correct": 0
-},
-{
-"q": "Câu 9. Nhà sử học Trần Trọng Kim đánh giá vua Quang Trung là người có đặc điểm nào?",
-"a": ["Học thức cao nhất nên am hiểu trị nước", "Văn võ song toàn, coi trọng hiền tài", "Chỉ giỏi võ nghệ mà không trọng văn học", "Vị vua lấy văn mà dựng nên sự nghiệp"],
-"correct": 1
-},
-{
-"q": "Câu 10. Phong trào Tây Sơn (1771-1802) bùng nổ nhằm thực hiện nhiệm vụ nào sau đây?",
-"a": ["Giải quyết mâu thuẫn giai cấp", "Giải phóng dân tộc khỏi ách đô hộ", "Hoàn thành thống nhất đất nước", "Bảo vệ quyền lợi dân chủ nhân dân"],
-"correct": 0
-},
-{
-"q": "Câu 11. Chính sách nào sau đây KHÔNG phải của nhà Minh đối với nhân dân Việt Nam?",
-"a": ["Đồng hóa về văn hóa, ngu dân", "Chia để trị về hành chính", "Đặt nhiều thứ thuế và lao dịch nặng", "Duy trì bộ máy cai trị cũ của người Việt"],
-"correct": 3
-},
-{
-"q": "Câu 12. Cuộc kháng chiến nào sau đây trước năm 1945 KHÔNG giành được thắng lợi?",
-"a": ["Chống quân Nam Hán của Ngô Quyền", "Chống quân Thanh của Quang Trung", "Chống Mông - Nguyên của nhà Trần", "Chống Pháp của triều đình nhà Nguyễn"],
-"correct": 3
-},
-{
-"q": "Câu 13. Nội dung nào sau đây KHÔNG phản ánh đúng vị trí địa lí chiến lược của Việt Nam?",
-"a": ["Cầu nối Trung Quốc với Đông Nam Á", "Nằm trên trục giao thông huyết mạch", "Cầu nối giữa lục địa và hải đảo Đông Nam Á", "Kiểm soát tuyến đường giữa Ấn Độ và Đông Nam Á"],
-"correct": 3
-},
-{
-"q": "Câu 14. Trong tiến trình lịch sử, chiến tranh bảo vệ Tổ quốc có ý nghĩa gì?",
-"a": ["Định hình bản sắc văn hóa dân tộc", "Tạo điều kiện hội nhập quốc tế", "Khẳng định Việt Nam là cường quốc kinh tế", "Hình thành và nâng cao lòng tự hào dân tộc"],
-"correct": 3
-},
-{
-"q": "Câu 15. Nguyên nhân khách quan dẫn đến thất bại của một số cuộc chiến tranh bảo vệ Tổ quốc trước 1945?",
-"a": ["Không xây dựng khối đại đoàn kết", "Tương quan lực lượng không có lợi", "Không có giai cấp lãnh đạo", "Sai lầm trong cách tổ chức quần chúng"],
-"correct": 1
-},
-{
-"q": "Câu 16. Để tăng cường sức mạnh quân sự, Hồ Quý Ly đã thực hiện biện pháp nào?",
-"a": ["Cải cách chế độ học tập thi cử", "Thực hiện hạn điền, hạn nô", "Lập lại kỉ cương quan lại", "Xây dựng thành lũy và đúc vũ khí"],
-"correct": 3
-},
-{
-"q": "Câu 17. Đâu là một cải cách về chính trị của Hồ Quý Ly?",
-"a": ["Hạn chế gia nô", "Thành lập nhiều cơ quan, chức quan mới", "Hạn chế Phật giáo và Đạo giáo", "Xóa bỏ tình trạng che giấu ruộng đất"],
-"correct": 1
-},
-{
-"q": "Câu 18. Bối cảnh lịch sử cuộc cải cách của Hồ Quý Ly là gì?",
-"a": ["Đất nước thái bình thịnh trị", "Nhà Trần khủng hoảng suy yếu nghiêm trọng", "Ngoại xâm đã bị đánh đuổi hoàn toàn", "Nhà Lê sơ đang ở đỉnh cao quyền lực"],
-"correct": 1
-},
-{
-"q": "Câu 19. Ai là người đề xướng và tiến hành cuộc cải cách ở Đại Việt trong thế kỉ XV?",
-"a": ["Khúc Hạo", "Lý Thánh Tông", "Trần Thánh Tông", "Lê Thánh Tông"],
-"correct": 3
-},
-{
-"q": "Câu 20. Mục đích chính trong cuộc cải cách của vua Lê Thánh Tông là gì?",
-"a": ["Tăng cường quyền lực tập trung vào nhà vua", "Hoàn thiện nền quân chủ lập hiến", "Biến Đại Việt thành cường quốc Đông Nam Á", "Xây dựng hệ thống phòng thủ biên giới"],
-"correct": 0
-},
-{
-"q": "Câu 21. Sau cải cách của Lê Thánh Tông, vị trí các chức quan đại thần thay đổi như thế nào?",
-"a": ["Suy giảm nhiều so với trước", "Được củng cố và nâng cao", "Trở thành lực lượng giám sát vua", "Bị bãi bỏ hoàn toàn để vua nắm hết"],
-"correct": 0
-},
-{
-"q": "Câu 22. Trong cuộc cải cách Lê Thánh Tông, cơ quan nào phụ trách các đạo thừa tuyên?",
-"a": ["Lục bộ và Thừa ty", "Lục khoa và Đô ty", "Đô ty, Thừa ty và Hiến ty", "Lục khoa và Hiến ty"],
-"correct": 2
-},
-{
-"q": "Câu 23. Để bảo vệ chế độ phong kiến, vua Minh Mạng lấy tư tưởng nào làm độc tôn?",
-"a": ["Nho giáo", "Phật giáo", "Thiên chúa giáo", "Đạo giáo"],
-"correct": 0
-},
-{
-"q": "Câu 24. Chính sách nào giúp Lê Thánh Tông tập trung tối đa quyền lực vào tay vua?",
-"a": ["Bỏ chức tể tướng, đại hành khiển, thay bằng Lục bộ", "Chia cả nước thành 13 đạo thừa tuyên", "Ban hành bộ luật Hồng Đức", "Tăng cường quân triều đình"],
-"correct": 0
-},
-{
-"q": "Câu 25. Nhận thức nào SAI về kết quả cuộc cải cách của vua Lê Thánh Tông?",
-"a": ["Kinh tế, pháp luật tiến bộ hơn trước", "Đưa nhà Lê sơ đạt đến đỉnh cao", "Đất nước phát triển ổn định", "Mô hình nhà nước Lê sơ vẫn là thể chế chính thống ngày nay"],
-"correct": 3
-},
-{
-"q": "Câu 26. Phong trào Tây Sơn đã có đóng góp gì cho lịch sử dân tộc?",
-"a": ["Lật đổ các tập đoàn phong kiến Nguyễn – Trịnh – Lê", "Khôi phục hoàn toàn nền độc lập", "Duy trì triều đại Tây Sơn lâu dài", "Lật đổ ách thống trị phương Bắc"],
-"correct": 0
-},
-{
-"q": "Câu 27. Khó khăn hiện nay trong bảo vệ chủ quyền Biển Đông là gì?",
-"a": ["Sự bất đồng quan điểm giữa các bên liên quan", "Lực lượng quân sự Việt Nam quá yếu", "Liên Hợp Quốc không ủng hộ Việt Nam", "Việt Nam thiếu bằng chứng pháp lí"],
-"correct": 0
-},
-{
-"q": "Câu 28. Bối cảnh cuộc cải cách Đại Việt thế kỉ XV diễn ra khi nào?",
-"a": ["Nội bộ triều đình mâu thuẫn, biến động", "Nạn đói, nạn dốt trầm trọng", "Kinh tế đang phát triển mạnh mẽ", "Ngoại xâm đã hoàn toàn rút lui"],
-"correct": 0
-},
-{
-"q": "Câu 29. Bộ luật nào được biên soạn dưới thời Lê sơ?",
-"a": ["Hồng Đức", "Gia Long", "Hình thư", "Hoàng Việt luật lệ"],
-"correct": 0
-},
-{
-"q": "Câu 30. Cuộc cải cách của Lê Thánh Tông chủ yếu diễn ra trong lĩnh vực nào?",
-"a": ["Hành chính", "Giáo dục", "Kinh tế", "Văn hóa"],
-"correct": 0
-},
-{
-"q": "Câu 31. Cuộc cải cách hành chính của vua Lê Thánh Tông không có ý nghĩa nào sau đây đối với tình hình Đại Việt lúc bấy giờ?",
-"a": ["Ổn định chính trị để phát triển kinh tế, văn hóa", "Đưa chế độ phong kiến phát triển lên đỉnh cao", "Thúc đẩy mở rộng lãnh thổ, bờ cõi vào Nam", "Hoàn thiện bộ máy nhà nước phong kiến quân chủ"],
-"correct": 2
-},
-{
-"q": "Câu 32. Nhận thức nào SAI về cải cách của Lê Thánh Tông?",
-"a": ["Hủy bỏ chế độ lộc điền và khôi phục trở lại chính sách “ngụ binh ư nông", "Nhà vua đặt chức Hà đê sứ và Khuyến nông sứ chăm lo nông nghiệp", "Nhà nước khuyến khích nhân dân đẩy mạnh phát triển kinh tế nông nghiệp", "Ban hành luật pháp, xây dựng quân đội quy củ để thực hiện nhiệm vụ quốc gia"],
-"correct": 0
-},
-{
-"q": "Câu 33. Vua Minh Mạng đã chia đất nước thành các đơn vị hành chính nào?",
-"a": ["Các lộ do An phủ sứ quản lí", "12 đạo thừa tuyên và một phủ", "63 tỉnh và thành phố", "30 tỉnh và 1 phủ Thừa Thiên"],
-"correct": 3
-},
-{
-"q": "Câu 34. Kết quả nổi bật từ cuộc cải cách của vua Minh Mạng là gì?",
-"a": ["Mở cửa hội nhập kinh tế", "Mở đường cho kinh tế tư bản", "Xây dựng bộ máy chính quyền hiệu quả", "Hoàn thành thống nhất lãnh thổ"],
-"correct": 2
-},
-{
-"q": "Câu 35. Tuyến đường di chuyển ngắn nhất nối Thái Bình Dương và Ấn Độ Dương đi qua vùng biển nào?",
-"a": ["Biển Đông", "Địa Trung Hải", "Biển Đỏ", "Biển Đen"],
-"correct": 0
-},
-{
-"q": "Câu 36. Nhận xét nào SAI về vai trò của Biển Đông đối với Việt Nam?",
-"a": ["Phát triển kinh tế, củng cố quốc phòng", "Không gian để Việt Nam độc chiếm Biển Đông", "Thế phòng thủ liên hoàn bảo vệ Tổ quốc", "Tuyến giao thương quốc tế chiến lược"],
-"correct": 1
-},
-{
-"q": "Câu 37. Đặc điểm chung của nghệ thuật quân sự Việt Nam trước 1945 là gì?",
-"a": ["Vừa đánh vừa đàm", "Đánh chắc tiến chắc", "Đánh nhanh thắng nhanh", "Chiến tranh nhân dân"],
-"correct": 3
-},
-{
-"q": "Câu 38. Bài học lịch sử xuyên suốt trong các cuộc chiến tranh giải phóng dân tộc là gì?",
-"a": ["Phát triển kinh tế", "Xây dựng khối đại đoàn kết toàn dân", "Cải cách đổi mới toàn diện", "Liên minh với các quốc gia khác"],
-"correct": 1
-},
-{
-"q": "Câu 39. Điểm chung thắng lợi của các cuộc chiến bảo vệ Tổ quốc thế kỉ X – XIX là gì?",
-"a": ["Quân sự hùng hậu hiện đại", "Khéo léo phát huy nội lực", "Nhận giúp đỡ của láng giềng", "Tổng tiến công ngay khi địch mới đến"],
-"correct": 1
-},
-  {
-    "q": "Câu 40. Nhận xét nào sau đây là đúng về nguyên nhân thắng lợi của các cuộc kháng chiến chống ngoại xâm của Việt Nam (từ thế kỉ X đến cuối thế kỉ XVIII)?",
-    "a": ["Vũ khí được trang bị kĩ thuật hiện đại.", "Biết phát huy sức mạnh của thời đại.", "Đã đề cao lợi ích dân tộc là tối thượng.", "Có đường lối kháng chiến trường kì."],
-    "correct": 3
-  },
-  {
-    "q": "Câu 41. Lĩnh vực nào trong cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV) để lại cho Việt Nam ngày nay một di sản văn hóa thế giới?",
-    "a": ["Kiến trúc quân sự.", "Kĩ thuật chế tạo vũ khí.", "Tài chính tiền tệ.", "Kiến trúc phật giáo"],
-    "correct": 0
-  },
-  {
-    "q": "Câu 42. Tính dân tộc trong cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV) được thể hiện rõ nhất ở nội dung nào sau đây?",
-    "a": ["Đưa Nho giáo trở thành hệ tư tưởng chủ đạo trong đời sống chính trị nhà nước.", "Hạn chế sự phát triển của Phật giáo và Đạo giáo trong đời sống của nhân dân.", "Đề cao và khuyến khích sử dụng chữ Nôm đặc biệt trong giáo dục và thi cử.", "Cải cách nghi lễ triều định và y phục của quan lại theo hướng qui củ, thống nhất."],
-    "correct": 2
-  },
-  {
-    "q": "Câu 43. Nhiệm vụ nào sau đây được coi là sự sống còn đối với cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV)?",
-    "a": ["Đưa đất nước thoát khỏi tình trạng khủng hoảng trầm trọng kéo dài nhiều năm.", "Giữ vững độc lập trước các thế lực ngoại xâm của quân Thanh và Chiêm Thành.", "Giải quyết hạn chế đang tồn tại của mô hình quân chủ thân dân của nhà Trần.", "Xây dựng một mô hình nhà nước mới phù hợp, có tính bền vững với xu thế."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 44. Nhận xét nào sau đây không đúng về cuộc cải cách của vua Lê Thánh Tông?",
-    "a": ["Từng bước bãi bỏ Lục bộ và Lục khoa.", "Nhà nước quản lí bằng luật pháp chặt chẽ.", "Tập trung các quyền lực vào tay nhà vua.", "Hoàn thiện chính sách tuyển chọn quan lại."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 45. Cuộc cải cách của vua Lê Thánh Tông không giải quyết lĩnh vực nào sau đây?",
-    "a": ["Hành chính.", "Ruộng đất.", "Văn hóa, giáo dục.", "Khôi phục Phật giáo."],
-    "correct": 3
-  },
-  {
-    "q": "Câu 46. Nội dung sau đây phản ánh không đúng nội dung cải cách về quân đội - quốc phòng của Đại Việt thời Lê Thánh Tông?",
-    "a": ["Năm 1466, cải tổ cả hệ thống quân đội.", "Tăng cường ngoại giao với phương Tây.", "Chia cả nước thành 5 khu vực quân sự.", "Có chính sách ưu đãi dành cho quân đội."],
-    "correct": 1
-  },
-  {
-    "q": "Câu 47. Triển khai cuộc cải cách hành chính có quy mô lớn, vua Minh Mạng đã thi hành biện pháp quân sự nào sau đây?",
-    "a": ["Triển khai cải cách hành chính địa phương trên dựa trên quy mô dân số.", "Quy định lại chính sách thuế với thuyền buôn nước ngoài đến buôn bán.", "Tiến hành độc tôn Nho giáo, hạn chế Phật giáo và cấm đạo Thiên Chúa giáo.", "Tổ chức lại lực lượng quân đội theo mô hình và phiên chế của phương Tây."],
-    "correct": 3
-  },
-  {
-    "q": "Câu 48. Nội dung nào sau đây không phải bối cảnh Minh Mạng tiến hành cuộc cải cách?",
-    "a": ["Bộ máy nhà nước thời Gia Long thiếu sự thống nhất.", "Tình hình chính trị, xã hội trong nước đang phức tạp.", "Thiên Chúa giáo đang lấn át hệ tư tưởng Nho giáo.", "Nguy cơ thực dân phương Tây xâm lược là rất lớn."],
-    "correct": 2
-  },
-  {
-    "q": "Câu 49. Nội dung nào sau đây thuộc lĩnh vực cải cách văn hóa do vua Minh Mạng tiến hành?",
-    "a": ["Cải cách hành chính ở địa phương trên phạm vi cả nước.", "Kiểm soát gắt gao các giáo sĩ phương Tây vào truyền đạo.", "Xây dựng quân đội hiện đạii theo mô hình phương Tây.", "Cho phép giáo sĩ, thương nhân hoạt động theo khu vực."],
-    "correct": 1
-  },
-  {
-    "q": "Câu 50. Trong cuộc cải cách của vua Minh Mạng, cơ quan nào sau đây ở trung ương tiếp tục đóng vai trò chủ chốt?",
-    "a": ["Thừa ty.", "Hiến ty.", "Nội các.", "Đô ty."],
-    "correct": 2
-  },
-  {
-    "q": "Câu 51. Trong cải cách của Minh Mạng, cơ quan nào sau đây (thành lập năm 1832) có nhiệm vụ can gián nhà vua và giám sát, vạch lỗi các cơ quan, quan lại từ cấp trung ướng đến địa phương?",
-    "a": ["Lục bộ.", "Cơ mật viện.", "Nội các.", "Đô sát viện."],
-    "correct": 3
-  },
-  {
-    "q": "Câu 52. Tên gọi của đơn vị hành chính nào sau đây lần đầu được sử dụng trong cuộc cải cách của vua Minh Mạng (nửa đầu thế kỉ XIX) tiếp tục được dùng trong đơn vị hành chính ngày nay?",
-    "a": ["Huyện, xã.", "Tỉnh, thành.", "Châu, tổng.", "Quận, lị."],
-    "correct": 1
-  },
-  {
-    "q": "Câu 53. Eo biển Ma-lắc-ca là điểm điều tiết giao thông quan trọng bậc nhất ở châu lục nào sau đây?",
-    "a": ["Châu Âu.", "Châu Phi.", "Châu Mĩ.", "Châu Á."],
-    "correct": 3
-  },
-  {
-    "q": "Câu 54. Nội dung nào sau đây phản ánh đúng sự phong phú về nguồn tài nguyên thiên nhiên của Biển Đông?",
-    "a": ["Biển Đông là điểm điều tiết giao thông đường biển quan trọng nhất châu Á.", "Biển Đông có hàng trăm loài sinh vật, bao gồm cả động vật và thực vật.", "Biển Đông là địa bàn cạnh tranh ảnh hưởng truyền thống của các nước lớn.", "Biển Đông là nơi tập trung các mô hình chính trị, kinh tế xã hội đa dạng."],
-    "correct": 1
-  },
-  {
-    "q": "Câu 55. Nội dung nào sau đây không phản ánh đúng tầm quan trọng của quần đảo Hoàng Sa và Trường Sa đối với Việt Nam về mặt kinh tế?",
-    "a": ["Tạo thế mạnh về dịch vụ hàng hải cho nước ta trên Biển Đông.", "Tạo tuyến phòng thủ nhiều tầng từ xa đến gần để bảo vệ đất liền.", "Tạo thế mạnh để phát triển kinh tế du lịch biển đảo cho nước ta.", "Tạo thuận lợi để phát triển ngành nuôi trồng, chế biến thủy sản."],
-    "correct": 1
-  },
-  {
-    "q": "Câu 56. Biển Đông nước ta góp phần quan trọng vào việc phát triển các ngành kinh tế trọng điểm, ngoại trừ",
-    "a": ["nông nghiệp trồng lúa nước.", "nuôi trồng thủy sản.", "du lịch - dịch vụ.", "thương mại hàng hải."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 57. Quốc gia đầu tiên khai phá, xác lập chủ quyền và quản lý liên tục đối với quần đảo Trường Sa và Hoàng Sa là",
-    "a": ["Việt Nam.", "Thái Lan.", "Trung Quốc.", "Campuchia."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 58. Nội dung nào sau đây không phản ánh đúng nhiệm vụ của hải đội Hoàng Sa và Bắc Hải dưới triều Nguyễn?",
-    "a": ["Dựng miếu thờ và trồng cây ở một số đảo.", "Đo đạc và cắm dấu mốc tại nơi khảo sát.", "Ngăn tàu thuyền nước ngoài đến buôn bán.", "Tiến hành thu gom, khai thác sản vật biển."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 59. Sau khi Pháp rút khỏi Việt Nam theo Hiệp định Giơnevơ (1954), lực lượng nào sau đây đã tiếp quản và khẳng định chủ quyền đối với quần đảo Hoàng Sa và Trường Sa?",
-    "a": ["Chính quyền Sài Gòn.", "Chính quyền Bảo Đại.", "Chính quyền Pháp.", "Chính phủ Việt Nam dân chủ cộng hòa."],
-    "correct": 0
-  },
-  {
-    "q": "Câu 60. Tại hội nghị Hòa bình Xan Phran-xi-xco (1951), khi chủ quyền của Việt Nam đối với quần đảo Hoàng Sa và quần đảo Trường Sa tiếp tục được tuyên bố mà không bị các quốc gia tham dự hội nghị phản đối. Điều đó cho thấy",
-    "a": ["tính pháp lý quốc tế và lịch sử về chủ quyền của Việt Nam.", "đây là những quần đảo không có giá trị cao về kinh tế.", "đây là những quần đảo không có giá trị cao về quốc phòng.", "các quốc gia tham dự hội nghị đều tuyệt đối tôn trọng luật Biển."],
-    "correct": 0
-  }
-
+    {
+        "q": "Câu 1. Trong cuộc kháng chiến chống Tống lần 2 (1075-1077), Lý Thường Kiệt đã chỉ đạo quân dân ta sử dụng nghệ thuật quân sự độc đáo nào sau đây?",
+        "a": ["Bố trí trận địa cọc trên sông Bạch Đằng", "Chủ động nghị hòa sau thắng lợi về quân sự", "Thực hiện 'vườn không nhà trống'", "Tổ chức tổng tiến công trên cả nước"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 2. Cuộc khởi nghĩa nào sau đây mở đầu thời kì đấu tranh chống Bắc thuộc của nhân dân Việt Nam?",
+        "a": ["Khởi nghĩa Hai Bà Trưng", "Khởi nghĩa Bà Triệu", "Khởi nghĩa Lý Bí", "Khởi nghĩa Phùng Hưng"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 3. Nội dung nào sau đây phản ánh đúng công lao của Phong trào Tây Sơn (1771 - 1802)?",
+        "a": ["Thiết lập một vương triều quân chủ cuối cùng", "Bước đầu thống nhất đất nước về mặt lãnh thổ", "Lật đổ ách đô hộ của nhà Thanh ở Việt Nam", "Ngăn chặn được nguy cơ thực dân Anh xâm lược"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 4. Câu thơ 'Mà nay áo vải cờ đào/Giúp dân dựng nước xiết bao công trình' nhắc đến nhân vật lịch sử nào?",
+        "a": ["Nguyễn Nhạc", "Nguyễn Lữ", "Nguyễn Huệ", "Ngô Quyền"],
+        "correct": 2
+    },
+    {
+        "q": "Câu 5. Cuộc kháng chiến không thành công nào sau đây dẫn đến hậu quả Việt Nam trở thành nước thuộc địa nửa phong kiến?",
+        "a": ["Chống thực dân Pháp", "Chống quân Minh", "Chống quân Xiêm", "Chống quân Triệu"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 6. Ở Việt Nam cuối thế kỉ XVIII, tình hình chính trị Đàng Trong khủng hoảng trầm trọng do nguyên nhân nào?",
+        "a": ["Nội bộ chính quyền tranh đấu lẫn nhau", "Phong trào đấu tranh của nhân dân lan rộng", "Các hoạt động sản xuất bị ngừng trệ", "Sự chống phá từ thế lực ngoại bang"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 7. Theo đoạn tư liệu về vua Quang Trung, nội dung nào sau đây KHÔNG được nhắc tới?",
+        "a": ["Chính sách trọng dụng hiền tài", "Việc trị quốc thời Tây Sơn", "Vua Quang Trung đại phá quân Xiêm và Thanh", "Vai trò của Nguyễn Huệ trong lịch sử"],
+        "correct": 2
+    },
+    {
+        "q": "Câu 8. Nội dung nào sau đây phản ánh không đúng về thông tin của đoạn trích trên?",
+        "a": ["Chính sách đối ngoại của Vương triều Tây Sơn.", "Tình hình lịch sử Việt Nam cuối thế kỉ XVIII.", "Việc trọng dụng nhân tài của vua Quang Trung.", "Vua Quang Trung đề cao người có học thức."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 9. Nhà sử học Trần Trọng Kim đánh giá vua Quang Trung là người có đặc điểm nào?",
+        "a": ["Học thức cao nhất nên am hiểu trị nước", "Văn võ song toàn, coi trọng hiền tài", "Chỉ giỏi võ nghệ mà không trọng văn học", "Vị vua lấy văn mà dựng nên sự nghiệp"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 10. Phong trào Tây Sơn (1771-1802) bùng nổ nhằm thực hiện nhiệm vụ nào sau đây?",
+        "a": ["Giải quyết mâu thuẫn giai cấp", "Giải phóng dân tộc khỏi ách đô hộ", "Hoàn thành thống nhất đất nước", "Bảo vệ quyền lợi dân chủ nhân dân"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 11. Chính sách nào sau đây KHÔNG phải của nhà Minh đối với nhân dân Việt Nam?",
+        "a": ["Đồng hóa về văn hóa, ngu dân", "Chia để trị về hành chính", "Đặt nhiều thứ thuế và lao dịch nặng", "Duy trì bộ máy cai trị cũ của người Việt"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 12. Cuộc kháng chiến nào sau đây trước năm 1945 KHÔNG giành được thắng lợi?",
+        "a": ["Chống quân Nam Hán của Ngô Quyền", "Chống quân Thanh của Quang Trung", "Chống Mông - Nguyên của nhà Trần", "Chống Pháp của triều đình nhà Nguyễn"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 13. Nội dung nào sau đây KHÔNG phản ánh đúng vị trí địa lí chiến lược của Việt Nam?",
+        "a": ["Cầu nối Trung Quốc với Đông Nam Á", "Nằm trên trục giao thông huyết mạch", "Cầu nối giữa lục địa và hải đảo Đông Nam Á", "Kiểm soát tuyến đường giữa Ấn Độ và Đông Nam Á"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 14. Trong tiến trình lịch sử, chiến tranh bảo vệ Tổ quốc có ý nghĩa gì?",
+        "a": ["Định hình bản sắc văn hóa dân tộc", "Tạo điều kiện hội nhập quốc tế", "Khẳng định Việt Nam là cường quốc kinh tế", "Hình thành và nâng cao lòng tự hào dân tộc"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 15. Nguyên nhân khách quan dẫn đến thất bại của một số cuộc chiến tranh bảo vệ Tổ quốc trước 1945?",
+        "a": ["Không xây dựng khối đại đoàn kết", "Tương quan lực lượng không có lợi", "Không có giai cấp lãnh đạo", "Sai lầm trong cách tổ chức quần chúng"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 16. Để tăng cường sức mạnh quân sự, Hồ Quý Ly đã thực hiện biện pháp nào?",
+        "a": ["Cải cách chế độ học tập thi cử", "Thực hiện hạn điền, hạn nô", "Lập lại kỉ cương quan lại", "Xây dựng thành lũy và đúc vũ khí"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 17. Đâu là một cải cách về chính trị của Hồ Quý Ly?",
+        "a": ["Hạn chế gia nô", "Thành lập nhiều cơ quan, chức quan mới", "Hạn chế Phật giáo và Đạo giáo", "Xóa bỏ tình trạng che giấu ruộng đất"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 18. Bối cảnh lịch sử cuộc cải cách của Hồ Quý Ly là gì?",
+        "a": ["Đất nước thái bình thịnh trị", "Nhà Trần khủng hoảng suy yếu nghiêm trọng", "Ngoại xâm đã bị đánh đuổi hoàn toàn", "Nhà Lê sơ đang ở đỉnh cao quyền lực"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 19. Ai là người đề xướng và tiến hành cuộc cải cách ở Đại Việt trong thế kỉ XV?",
+        "a": ["Khúc Hạo", "Lý Thánh Tông", "Trần Thánh Tông", "Lê Thánh Tông"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 20. Mục đích chính trong cuộc cải cách của vua Lê Thánh Tông là gì?",
+        "a": ["Tăng cường quyền lực tập trung vào nhà vua", "Hoàn thiện nền quân chủ lập hiến", "Biến Đại Việt thành cường quốc Đông Nam Á", "Xây dựng hệ thống phòng thủ biên giới"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 21. Sau cải cách của Lê Thánh Tông, vị trí các chức quan đại thần thay đổi như thế nào?",
+        "a": ["Suy giảm nhiều so với trước", "Được củng cố và nâng cao", "Trở thành lực lượng giám sát vua", "Bị bãi bỏ hoàn toàn để vua nắm hết"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 22. Trong cuộc cải cách Lê Thánh Tông, cơ quan nào phụ trách các đạo thừa tuyên?",
+        "a": ["Lục bộ và Thừa ty", "Lục khoa và Đô ty", "Đô ty, Thừa ty và Hiến ty", "Lục khoa và Hiến ty"],
+        "correct": 2
+    },
+    {
+        "q": "Câu 23. Để bảo vệ chế độ phong kiến, vua Minh Mạng lấy tư tưởng nào làm độc tôn?",
+        "a": ["Nho giáo", "Phật giáo", "Thiên chúa giáo", "Đạo giáo"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 24. Chính sách nào giúp Lê Thánh Tông tập trung tối đa quyền lực vào tay vua?",
+        "a": ["Bỏ chức tể tướng, đại hành khiển, thay bằng Lục bộ", "Chia cả nước thành 13 đạo thừa tuyên", "Ban hành bộ luật Hồng Đức", "Tăng cường quân triều đình"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 25. Nhận thức nào SAI về kết quả cuộc cải cách của vua Lê Thánh Tông?",
+        "a": ["Kinh tế, pháp luật tiến bộ hơn trước", "Đưa nhà Lê sơ đạt đến đỉnh cao", "Đất nước phát triển ổn định", "Mô hình nhà nước Lê sơ vẫn là thể chế chính thống ngày nay"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 26. Phong trào Tây Sơn đã có đóng góp gì cho lịch sử dân tộc?",
+        "a": ["Lật đổ các tập đoàn phong kiến Nguyễn – Trịnh – Lê", "Khôi phục hoàn toàn nền độc lập", "Duy trì triều đại Tây Sơn lâu dài", "Lật đổ ách thống trị phương Bắc"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 27. Khó khăn hiện nay trong bảo vệ chủ quyền Biển Đông là gì?",
+        "a": ["Sự bất đồng quan điểm giữa các bên liên quan", "Lực lượng quân sự Việt Nam quá yếu", "Liên Hợp Quốc không ủng hộ Việt Nam", "Việt Nam thiếu bằng chứng pháp lí"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 28. Bối cảnh cuộc cải cách Đại Việt thế kỉ XV diễn ra khi nào?",
+        "a": ["Nội bộ triều đình mâu thuẫn, biến động", "Nạn đói, nạn dốt trầm trọng", "Kinh tế đang phát triển mạnh mẽ", "Ngoại xâm đã hoàn toàn rút lui"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 29. Bộ luật nào được biên soạn dưới thời Lê sơ?",
+        "a": ["Hồng Đức", "Gia Long", "Hình thư", "Hoàng Việt luật lệ"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 30. Cuộc cải cách của Lê Thánh Tông chủ yếu diễn ra trong lĩnh vực nào?",
+        "a": ["Hành chính", "Giáo dục", "Kinh tế", "Văn hóa"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 31. Ý nghĩa nào KHÔNG phải của cuộc cải cách hành chính thời Lê Thánh Tông?",
+        "a": ["Ổn định chính trị để phát triển kinh tế, văn hóa", "Đưa chế độ phong kiến phát triển lên đỉnh cao", "Thúc đẩy mở rộng lãnh thổ, bờ cõi vào Nam.", "Hoàn thiện bộ máy nhà nước phong kiến quân chủ"],
+        "correct": 2
+    },
+    {
+        "q": "Câu 32. Nhận thức nào SAI về cải cách của Lê Thánh Tông?",
+        "a": ["Hủy bỏ chế độ lộc điền và khôi phục trở lại chính sách 'ngụ binh ư nông'", "Nhà vua đặt chức Hà đê sứ và Khuyến nông sứ chăm lo nông nghiệp", "Nhà nước khuyến khích nhân dân đẩy mạnh phát triển kinh tế nông nghiệp", "Ban hành luật pháp, xây dựng quân đội quy củ để thực hiện nhiệm vụ quốc gia"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 33. Vua Minh Mạng đã chia đất nước thành các đơn vị hành chính nào?",
+        "a": ["Các lộ do An phủ sứ quản lí", "12 đạo thừa tuyên và một phủ", "63 tỉnh và thành phố", "30 tỉnh và 1 phủ Thừa Thiên"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 34. Kết quả nổi bật từ cuộc cải cách của vua Minh Mạng là gì?",
+        "a": ["Mở cửa hội nhập kinh tế", "Mở đường cho kinh tế tư bản", "Xây dựng bộ máy chính quyền hiệu quả", "Hoàn thành thống nhất lãnh thổ"],
+        "correct": 2
+    },
+    {
+        "q": "Câu 35. Tuyến đường di chuyển ngắn nhất nối Thái Bình Dương và Ấn Độ Dương đi qua vùng biển nào?",
+        "a": ["Biển Đông", "Địa Trung Hải", "Biển Đỏ", "Biển Đen"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 36. Nhận xét nào SAI về vai trò của Biển Đông đối với Việt Nam?",
+        "a": ["Phát triển kinh tế, củng cố quốc phòng", "Không gian để Việt Nam độc chiếm Biển Đông", "Thế phòng thủ liên hoàn bảo vệ Tổ quốc", "Tuyến giao thương quốc tế chiến lược"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 37. Đặc điểm chung của nghệ thuật quân sự Việt Nam trước 1945 là gì?",
+        "a": ["Vừa đánh vừa đàm", "Đánh chắc tiến chắc", "Đánh nhanh thắng nhanh", "Chiến tranh nhân dân"],
+        "correct": 3
+    },
+    {
+        "q": "Câu 38. Bài học lịch sử xuyên suốt trong các cuộc chiến tranh giải phóng dân tộc là gì?",
+        "a": ["Phát triển kinh tế", "Xây dựng khối đại đoàn kết toàn dân", "Cải cách đổi mới toàn diện", "Liên minh với các quốc gia khác"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 39. Điểm chung thắng lợi của các cuộc chiến bảo vệ Tổ quốc thế kỉ X – XIX là gì?",
+        "a": ["Quân sự hùng hậu hiện đại", "Khéo léo phát huy nội lực", "Nhận giúp đỡ của láng giềng", "Tổng tiến công ngay khi địch mới đến"],
+        "correct": 1
+    },
+    {
+        "q": "Câu 40. Nhận xét nào sau đây là đúng về nguyên nhân thắng lợi của các cuộc kháng chiến chống ngoại xâm của Việt Nam (từ thế kỉ X đến cuối thế kỉ XVIII)?",
+        "a": ["Vũ khí được trang bị kĩ thuật hiện đại.", "Biết phát huy sức mạnh của thời đại.", "Đã đề cao lợi ích dân tộc là tối thượng.", "Có đường lối kháng chiến trường kì."],
+        "correct": 3
+    },
+    {
+        "q": "Câu 41. Lĩnh vực nào trong cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV) để lại cho Việt Nam ngày nay một di sản văn hóa thế giới?",
+        "a": ["Kiến trúc quân sự.", "Kĩ thuật chế tạo vũ khí.", "Tài chính tiền tệ.", "Kiến trúc phật giáo"],
+        "correct": 0
+    },
+    {
+        "q": "Câu 42. Tính dân tộc trong cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV) được thể hiện rõ nhất ở nội dung nào sau đây?",
+        "a": ["Đưa Nho giáo trở thành hệ tư tưởng chủ đạo trong đời sống chính trị nhà nước.", "Hạn chế sự phát triển của Phật giáo và Đạo giáo trong đời sống của nhân dân.", "Đề cao và khuyến khích sử dụng chữ Nôm đặc biệt trong giáo dục và thi cử.", "Cải cách nghi lễ triều định và y phục của quan lại theo hướng qui củ, thống nhất."],
+        "correct": 2
+    },
+    {
+        "q": "Câu 43. Nhiệm vụ nào sau đây được coi là sự sống còn đối với cuộc cải cách của Hồ Quý Ly và triều Hồ (cuối thế kỉ XIV – đầu thế kỉ XV)?",
+        "a": ["Đưa đất nước thoát khỏi tình trạng khủng hoảng trầm trọng kéo dài nhiều năm.", "Giữ vững độc lập trước các thế lực ngoại xâm của quân Thanh và Chiêm Thành.", "Giải quyết hạn chế đang tồn tại của mô hình quân chủ thân dân của nhà Trần.", "Xây dựng một mô hình nhà nước mới phù hợp, có tính bền vững với xu thế."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 44. Nhận xét nào sau đây không đúng về cuộc cải cách của vua Lê Thánh Tông?",
+        "a": ["Từng bước bãi bỏ Lục bộ và Lục khoa.", "Nhà nước quản lí bằng luật pháp chặt chẽ.", "Tập trung các quyền lực vào tay nhà vua.", "Hoàn thiện chính sách tuyển chọn quan lại."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 45. Cuộc cải cách của vua Lê Thánh Tông không giải quyết lĩnh vực nào sau đây?",
+        "a": ["Hành chính.", "Ruộng đất.", "Văn hóa, giáo dục.", "Khôi phục Phật giáo."],
+        "correct": 3
+    },
+    {
+        "q": "Câu 46. Nội dung sau đây phản ánh không đúng nội dung cải cách về quân đội - quốc phòng của Đại Việt thời Lê Thánh Tông?",
+        "a": ["Năm 1466, cải tổ cả hệ thống quân đội.", "Tăng cường ngoại giao với phương Tây.", "Chia cả nước thành 5 khu vực quân sự.", "Có chính sách ưu đãi dành cho quân đội."],
+        "correct": 1
+    },
+    {
+        "q": "Câu 47. Triển khai cuộc cải cách hành chính có quy mô lớn, vua Minh Mạng đã thi hành biện pháp quân sự nào sau đây?",
+        "a": ["Triển khai cải cách hành chính địa phương trên dựa trên quy mô dân số.", "Quy định lại chính sách thuế với thuyền buôn nước ngoài đến buôn bán.", "Tiến hành độc tôn Nho giáo, hạn chế Phật giáo và cấm đạo Thiên Chúa giáo.", "Tổ chức lại lực lượng quân đội theo mô hình và phiên chế của phương Tây."],
+        "correct": 3
+    },
+    {
+        "q": "Câu 48. Nội dung nào sau đây không phải bối cảnh Minh Mạng tiến hành cuộc cải cách?",
+        "a": ["Bộ máy nhà nước thời Gia Long thiếu sự thống nhất.", "Tình hình chính trị, xã hội trong nước đang phức tạp.", "Thiên Chúa giáo đang lấn át hệ tư tưởng Nho giáo.", "Nguy cơ thực dân phương Tây xâm lược là rất lớn."],
+        "correct": 2
+    },
+    {
+        "q": "Câu 49. Nội dung nào sau đây thuộc lĩnh vực cải cách văn hóa do vua Minh Mạng tiến hành?",
+        "a": ["Cải cách hành chính ở địa phương trên phạm vi cả nước.", "Kiểm soát gắt gao các giáo sĩ phương Tây vào truyền đạo.", "Xây dựng quân đội hiện đạii theo mô hình phương Tây.", "Cho phép giáo sĩ, thương nhân hoạt động theo khu vực."],
+        "correct": 1
+    },
+    {
+        "q": "Câu 50. Trong cuộc cải cách của vua Minh Mạng, cơ quan nào sau đây ở trung ương tiếp tục đóng vai trò chủ chốt?",
+        "a": ["Thừa ty.", "Hiến ty.", "Nội các.", "Đô ty."],
+        "correct": 2
+    },
+    {
+        "q": "Câu 51. Trong cải cách của Minh Mạng, cơ quan nào sau đây (thành lập năm 1832) có nhiệm vụ can gián nhà vua và giám sát, vạch lỗi các cơ quan, quan lại từ cấp trung ướng đến địa phương?",
+        "a": ["Lục bộ.", "Cơ mật viện.", "Nội các.", "Đô sát viện."],
+        "correct": 3
+    },
+    {
+        "q": "Câu 52. Tên gọi của đơn vị hành chính nào sau đây lần đầu được sử dụng trong cuộc cải cách của vua Minh Mạng (nửa đầu thế kỉ XIX) tiếp tục được dùng trong đơn vị hành chính ngày nay?",
+        "a": ["Huyện, xã.", "Tỉnh, thành.", "Châu, tổng.", "Quận, lị."],
+        "correct": 1
+    },
+    {
+        "q": "Câu 53. Eo biển Ma-lắc-ca là điểm điều tiết giao thông quan trọng bậc nhất ở châu lục nào sau đây?",
+        "a": ["Châu Âu.", "Châu Phi.", "Châu Mĩ.", "Châu Á."],
+        "correct": 3
+    },
+    {
+        "q": "Câu 54. Nội dung nào sau đây phản ánh đúng sự phong phú về nguồn tài nguyên thiên nhiên của Biển Đông?",
+        "a": ["Biển Đông là điểm điều tiết giao thông đường biển quan trọng nhất châu Á.", "Biển Đông có hàng trăm loài sinh vật, bao gồm cả động vật và thực vật.", "Biển Đông là địa bàn cạnh tranh ảnh hưởng truyền thống của các nước lớn.", "Biển Đông là nơi tập trung các mô hình chính trị, kinh tế xã hội đa dạng."],
+        "correct": 1
+    },
+    {
+        "q": "Câu 55. Nội dung nào sau đây không phản ánh đúng tầm quan trọng của quần đảo Hoàng Sa và Trường Sa đối với Việt Nam về mặt kinh tế?",
+        "a": ["Tạo thế mạnh về dịch vụ hàng hải cho nước ta trên Biển Đông.", "Tạo tuyến phòng thủ nhiều tầng từ xa đến gần để bảo vệ đất liền.", "Tạo thế mạnh để phát triển kinh tế du lịch biển đảo cho nước ta.", "Tạo thuận lợi để phát triển ngành nuôi trồng, chế biến thủy sản."],
+        "correct": 1
+    },
+    {
+        "q": "Câu 56. Biển Đông nước ta góp phần quan trọng vào việc phát triển các ngành kinh tế trọng điểm, ngoại trừ",
+        "a": ["nông nghiệp trồng lúa nước.", "nuôi trồng thủy sản.", "du lịch - dịch vụ.", "thương mại hàng hải."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 57. Quốc gia đầu tiên khai phá, xác lập chủ quyền và quản lý liên tục đối với quần đảo Trường Sa và Hoàng Sa là",
+        "a": ["Việt Nam.", "Thái Lan.", "Trung Quốc.", "Campuchia."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 58. Nội dung nào sau đây không phản ánh đúng nhiệm vụ của hải đội Hoàng Sa và Bắc Hải dưới triều Nguyễn?",
+        "a": ["Dựng miếu thờ và trồng cây ở một số đảo.", "Đo đạc và cắm dấu mốc tại nơi khảo sát.", "Ngăn tàu thuyền nước ngoài đến buôn bán.", "Tiến hành thu gom, khai thác sản vật biển."],
+        "correct": 2
+    },
+    {
+        "q": "Câu 59. Sau khi Pháp rút khỏi Việt Nam theo Hiệp định Giơnevơ (1954), lực lượng nào sau đây đã tiếp quản và khẳng định chủ quyền đối với quần đảo Hoàng Sa và Trường Sa?",
+        "a": ["Chính quyền Sài Gòn.", "Chính quyền Bảo Đại.", "Chính quyền Pháp.", "Chính phủ Việt Nam dân chủ cộng hòa."],
+        "correct": 0
+    },
+    {
+        "q": "Câu 60. Tại hội nghị Hòa bình Xan Phran-xi-xco (1951), khi chủ quyền của Việt Nam đối với quần đảo Hoàng Sa và quần đảo Trường Sa tiếp tục được tuyên bố mà không bị các quốc gia tham dự hội nghị phản đối. Điều đó cho thấy",
+        "a": ["tính pháp lý quốc tế và lịch sử về chủ quyền của Việt Nam.", "đây là những quần đảo không có giá trị cao về kinh tế.", "đây là những quần đảo không có giá trị cao về quốc phòng.", "các quốc gia tham dự hội nghị đều tuyệt đối tôn trọng luật Biển."],
+        "correct": 0
+    }
 ];
 
-const quiz=document.getElementById("quiz");
+const quizContainer = document.getElementById("quiz");
 
-function load(){
-
-quiz.innerHTML="";
-
-questions.forEach((item,i)=>{
-
-let div=document.createElement("div");
-div.className="question";
-
-let html=`<p><b>${item.q}</b></p>`;
-
-item.a.forEach((ans,index)=>{
-
-html+=`
-<label>
-<input type="radio" name="q${i}" value="${index}">
-${String.fromCharCode(65+index)}. ${ans}
-</label><br>
-`;
-
-});
-
-div.innerHTML=html;
-
-quiz.appendChild(div);
-
-});
-
+function load() {
+    quizContainer.innerHTML = "";
+    questions.forEach((item, i) => {
+        let div = document.createElement("div");
+        div.className = "question";
+        let html = `<p><b>${item.q}</b></p>`;
+        item.a.forEach((ans, index) => {
+            html += `
+                <label>
+                    <input type="radio" name="q${i}" value="${index}">
+                    ${String.fromCharCode(65 + index)}. ${ans}
+                </label><br>
+            `;
+        });
+        div.innerHTML = html;
+        quizContainer.appendChild(div);
+    });
 }
 
+function check() {
+    let score = 0;
+    questions.forEach((q, i) => {
+        let options = document.getElementsByName("q" + i);
+        let answered = false;
+
+        options.forEach(opt => {
+            let label = opt.parentElement;
+            label.classList.remove("correct", "wrong");
+
+            // Nếu là đáp án đúng, tô xanh
+            if (parseInt(opt.value) === q.correct) {
+                label.classList.add("correct");
+            }
+
+            if (opt.checked) {
+                answered = true;
+                if (parseInt(opt.value) === q.correct) {
+                    score++;
+                } else {
+                    // Nếu chọn sai, tô đỏ đáp án đã chọn
+                    label.classList.add("wrong");
+                }
+            }
+        });
+    });
+
+    document.getElementById("result").innerHTML = 
+        "Kết quả: <b>" + score + " / " + questions.length + "</b> câu đúng.";
+    window.scrollTo(0, 0); // Cuộn lên đầu để xem điểm
+}
+
+function shuffleQuestions() {
+    for (let i = questions.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    load();
+}
+
+// Khởi tạo lần đầu
 load();
-
-function check(){
-
-let score=0;
-
-questions.forEach((q,i)=>{
-
-let options=document.getElementsByName("q"+i);
-
-options.forEach(opt=>{
-
-let label=opt.parentElement;
-
-label.classList.remove("correct","wrong");
-
-if(opt.checked){
-
-if(parseInt(opt.value)===q.correct){
-
-label.classList.add("correct");
-score++;
-
-}else{
-
-label.classList.add("wrong");
-
-}
-
-}
-
-if(parseInt(opt.value)===q.correct){
-
-label.classList.add("correct");
-
-}
-
-});
-
-});
-
-document.getElementById("result").innerHTML=
-"Bạn đúng <b>"+score+" / "+questions.length+"</b> câu";
-
-}
-
-function shuffleQuestions(){
-
-for(let i=questions.length-1;i>0;i--){
-
-let j=Math.floor(Math.random()*(i+1));
-[questions[i],questions[j]]=[questions[j],questions[i]];
-
-}
-
-load();
-
-}
-
 </script>
 
 </body>
